@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Animal Crossing Letter Generator</title>
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    </link>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script>
+        $(document).ready(function(){
+            var header, body, end;
+            $("#share").click(function(){
+                header=$("#header").val();
+                body=$("#body").val();
+                end=$("#end").val();
+                $.post("http://localhost:8080/results", {header: header, body: body, end: end}, function(data, status){
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+        });
+    </script>-->
+</head>
+
+<body>
+    <div id="title">
+        <h1 style="color: white; text-align: center;">ANIMAL CROSSING LETTER GENERATOR</h1>
+    </div>
+    <img src="https://vignette.wikia.nocookie.net/nintendo/images/7/7c/Animal_Crossing_-_Pocket_Camp_-_Character_Artwork_-_Isabelle_03.png/revision/latest?cb=20171025164946&path-prefix=en"
+        style="top: 0px;">
+    <img src="https://vignette.wikia.nocookie.net/nintendo/images/7/7c/Animal_Crossing_-_Pocket_Camp_-_Character_Artwork_-_Isabelle_03.png/revision/latest?cb=20171025164946&path-prefix=en"
+        style="right:0px; top:0px;">
+    <img src="https://vignette.wikia.nocookie.net/nintendo/images/7/7c/Animal_Crossing_-_Pocket_Camp_-_Character_Artwork_-_Isabelle_03.png/revision/latest?cb=20171025164946&path-prefix=en"
+        style="right:0px; bottom:0px;">
+    <img src="https://vignette.wikia.nocookie.net/nintendo/images/7/7c/Animal_Crossing_-_Pocket_Camp_-_Character_Artwork_-_Isabelle_03.png/revision/latest?cb=20171025164946&path-prefix=en"
+        style="left:0px; bottom:0px;">
+
+    <div class="outer">
+        <form action="/results" method="POST" id="form1">
+            <div id="inputs">
+                <input id="header" type="text" class="form-control textcolor" name="header" data-tw-bind="header"
+                    placeholder="Type your message greeting here...">
+                <textarea id="body" rows="5" id="body-text" class="form-control textcolor" data-tw-bind="body" name="body"
+                    placeholder="Type the body of your message here..."></textarea>
+                <input id="end" type="text" class="form-control textcolor" data-tw-bind="end" name="closing"
+                    placeholder="Type your closing message here...">
+            </div>
+        </form>
+        <div class="middle">
+            <div id="buttons">
+                <button id="button-left" type="button" class="btn btn-default btn-md" disabled onclick="goLeft()">
+                    <</button> <button id="button-right" type="button" class="btn btn-default btn-md" onclick="goRight()">>
+                </button>
+                <input type="color">
+            </div>
+            <div class="inner">
+                <img id="img1" class="img" src="https://40.media.tumblr.com/afc9f98282c56296eeb0d1208b9c2236/tumblr_neukh5Rf7T1s66hh7o5_1280.png">
+                <img id="img2" class="img hidden" src="https://66.media.tumblr.com/beafa5731ef8480851f8a28685f984be/tumblr_neukh5Rf7T1s66hh7o3_1280.png">
+                <img id="img3" class="img hidden" src="https://66.media.tumblr.com/cbe122a32f9bfcbcd7a4f806f838c633/tumblr_neukh5Rf7T1s66hh7o2_1280.png">
+                <img id="img4" class="img hidden" src="https://i.pinimg.com/originals/8f/a8/87/8fa88731bbf2dc81df2d4d16dc20b5b8.png">
+
+                <p id="header-of-letter" data-tw-bind="header">
+                </p>
+                <p id="body-of-letter" data-tw-bind="body">hey this is the body</p>
+                <p id="end-of-letter" data-tw-bind="end"></p>
+            </div>
+            <button id="share" type="submit" class="btn btn-primary btn-lg" form="form1">Share</button>
+        </div>
+    </div>
+    <script src="/js/main.js">
+    </script>
+</body>
+
+</html>

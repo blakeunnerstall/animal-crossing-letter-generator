@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'Nunito-SemiBold';
+    src: url('/fonts/nunito.semibold.ttf');
+}
+
+:root {
+    --text-color: black;
+}
+
+body {
+    font-size: 20px !important;
+    font-family: 'Roboto', sans-serif !important;
+    background-image: url("/images/zz.png");
+    background-repeat: repeat;
+}
+
+.outer {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 512px;
+    height: 384px;
+    /*whatever width you want*/
+    /*border: 1px solid black;*/
+}
+
+img {
+    opacity: 1;
+    position: absolute;
+}
+
+#form1 {
+    border-radius: 25px;
+    background-image: url("https://media.discordapp.net/attachments/325252608421920798/534860456565932043/wood.jpg?width=1152&height=676");
+    height: 384px;
+    width: 512px;
+    margin-bottom: 40px;
+}
+
+#header {
+    margin-top: 45px;
+    margin-left: 10%;
+    width: 80%;
+}
+
+#body-text {
+    margin-top: 20px;
+    margin-left: 10%;
+    width: 80%;
+    height: 170px;
+}
+
+#end {
+    margin-top: 20px;
+    margin-left: 10%;
+    width: 80%;
+}
+
+/*#header {
+    margin-bottom: 10px;
+    width: 300px;
+    margin-left: -15%;
+}*/
+
+/*#body-text {
+    margin-left: -15%;
+    width: 300px;
+    height: 150px;
+    margin-bottom: 10px;
+}*/
+
+/*#end {
+    margin-bottom: 50px;
+    width: 300px;
+    margin-left: -15%;
+}*/
+
+#buttons {
+    margin-bottom: 20px;
+    margin-left: 40%;
+}
+
+#share {
+    margin-top: 50px;
+    margin-left: 40%;
+}
+
+#body-of-letter {
+    font-family: 'Nunito-SemiBold', sans-serif !important;
+    color: var(--text-color);
+    font-weight: bold;
+    position: absolute;
+    opacity: 1;
+    /*border: 1px solid black;*/
+    margin-top: 78px;
+    margin-left: 45px;
+    max-width: 435px;
+    max-height: 250px;
+    line-height: 40px;
+}
+
+#header-of-letter {
+    font-family: 'Nunito-SemiBold', sans-serif !important;
+    color: var(--text-color);
+    font-weight: bold;
+    position: absolute;
+    opacity: 1;
+    /*border: 1px solid black;*/
+    margin-top: 25px;
+    margin-left: 45px;
+    max-width: 440px;
+}
+
+#end-of-letter {
+    font-family: 'Nunito-SemiBold', sans-serif !important;
+    color: var(--text-color);
+    font-weight: bold;
+    position: absolute;
+    opacity: 1;
+    /*border: 1px solid black;*/
+    margin-top: 335px;
+    margin-left: 45px;
+}
+
+.hidden {
+    display: none;
+}
