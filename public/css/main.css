@@ -71,24 +71,14 @@ img {
     width: 80%;
 }
 
-/*#header {
-    margin-bottom: 10px;
-    width: 300px;
-    margin-left: -15%;
-}*/
+#audio-play {
+    margin-top: 10px;
+}
 
-/*#body-text {
-    margin-left: -15%;
-    width: 300px;
-    height: 150px;
-    margin-bottom: 10px;
-}*/
+#button-div {
+    text-align: center;
+}
 
-/*#end {
-    margin-bottom: 50px;
-    width: 300px;
-    margin-left: -15%;
-}*/
 
 #buttons {
     margin-bottom: 20px;

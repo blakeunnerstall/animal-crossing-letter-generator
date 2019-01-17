@@ -63,7 +63,7 @@ const allImg = document.querySelectorAll('.img');
 let counter = 0;
 
 function goRight() {
-    //console.log(counter);
+    console.log(counter);
     document.getElementById("button-left").disabled = false;
     if (counter === (allImg.length - 2)) {
         document.getElementById("button-right").disabled = true;
@@ -87,12 +87,29 @@ function goLeft() {
 
 const colorInput = document.querySelector('input[type=color]');
 const colorCSS = document.querySelectorAll('.textcolor');
-//console.log(colorCSS);
-
 
 colorInput.addEventListener('change', () => {
     console.log(colorInput.value);
     document.getElementById("body-of-letter").style.setProperty('--text-color', colorInput.value);
     document.getElementById("header-of-letter").style.setProperty('--text-color', colorInput.value);
     document.getElementById("end-of-letter").style.setProperty('--text-color', colorInput.value);
+
+    // change value of hidden input
+    document.getElementById('font-color').value = colorInput.value;
 })
+
+function addToSongInput() {
+    document.getElementById("song-name").value = document.getElementById("song-select").value;
+}
+
+function submitFunc() {
+    // get url of current background image
+    document.querySelectorAll('.img').forEach((element) => {
+        if (!element.classList.contains("hidden")) {
+            console.log(element.src);
+            // change value of hidden input
+            document.getElementById("letter-background").value = element.src;
+        }
+
+    });
+}

@@ -8,6 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/yourpage.js"></script>
+    <script>
+        let url = 'https://localhost:8080/results';
+
+        fetch(url)
+            .then(res => res.json())
+            .then((out) => {
+                console.log('Checkout this JSON! ', out);
+            })
+            .catch(err => {
+                throw err
+            });
+    </script>
 </head>
 
 <body>

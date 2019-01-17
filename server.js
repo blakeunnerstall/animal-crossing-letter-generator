@@ -21,21 +21,25 @@ app.get('/', function (req, res) {
 });
 
 // express is taking the query string and translating it to JSON
-app.post('/results', function (req, res) {
-    /*res.setHeader('Content-Type', 'application/json');
-    res.send(req.body);*/
-    let user = {
+/*app.post('/results', function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(req.body);
+    /*let user = {
         Greeting: req.body.header,
         Body: req.body.body,
         Closing: req.body.closing
     }
 
-    res.json([user]);
-    /*var header = req.body.header;
+    res.json([user]);*/
+/*var header = req.body.header;
     var body = req.body.body;
     var end = req.body.closing;
     console.log(`Header: ${header}... Body: ${body}... End: ${end}`);
-    res.end(`Header: ${header}... Body: ${body}... End: ${end}`);*/
+    res.end(`Header: ${header}... Body: ${body}... End: ${end}`);
+});*/
+
+app.get('/results', function (req, res) {
+    res.send(req.query);
 });
 
 app.get('/results', function (req, res) {

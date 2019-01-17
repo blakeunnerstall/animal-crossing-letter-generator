@@ -15,20 +15,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <script>
+    <script>
         $(document).ready(function(){
-            var header, body, end;
-            $("#share").click(function(){
-                header=$("#header").val();
-                body=$("#body").val();
-                end=$("#end").val();
-                $.post("http://localhost:8080/results", {header: header, body: body, end: end}, function(data, status){
-                    alert("Data: " + data + "\nStatus: " + status);
-                });
+            // When "Listen" button is clicked, change() function happens with the parameter being the actual src link
+            $('[source]').on('click', function(){
+                change( $(this).attr('source')  );
             });
-        });
-    </script>-->
+        });    
+
+        function change(sourceUrl) {
+            var audio = $("player");      
+            $("#mp3_src").attr("src", sourceUrl);
+            /****************/
+            $('audio').get(0).pause();
+            $('audio').get(0).load();//suspends and restores all audio element
+            $('audio').get(0).play();
+        }
+    </script>
 </head>
 
 <body>
@@ -45,15 +48,64 @@
         style="left:0px; bottom:0px;">
 
     <div class="outer">
-        <form action="/results" method="POST" id="form1">
+        <form action="/results" method="GET" onsubmit="submitFunc()" id="form1">
             <div id="inputs">
                 <input id="header" type="text" class="form-control textcolor" name="header" data-tw-bind="header"
                     placeholder="Type your message greeting here...">
-                <textarea id="body" rows="5" id="body-text" class="form-control textcolor" data-tw-bind="body" name="body"
+                <textarea rows="5" id="body-text" class="form-control textcolor" data-tw-bind="body" name="body"
                     placeholder="Type the body of your message here..."></textarea>
                 <input id="end" type="text" class="form-control textcolor" data-tw-bind="end" name="closing"
                     placeholder="Type your closing message here...">
+                <div id="button-div">
+                    <button id="audio-play" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Select
+                        Music</button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Choose the music</h4>
+                            </div>
+                            <div class="modal-body">
+                                <audio id="player" controls="controls">
+                                    <source id="mp3_src" type="audio/mp3" />
+                                </audio>
+                                <table>
+                                    <tr>
+                                        <td>THE SONG</td>
+                                        <td><a href="#" source="http://www.culturedub.com/assets/04-Forward.mp3">Listen</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>THE SONG</td>
+                                        <td><a href="#" source="http://www.culturedub.com/assets/04-Moringa-JahYu-Remix-feat-BaNdula-1.mp3">Listen</a></td>
+                                    </tr>
+                                </table>
+                                <br>
+                                <h3>Select the song for your letter!</h3>
+                                <select id="song-select" name="song-name" class="form-control">
+                                    <option value="url1">Song 1</option>
+                                    <option value="url2">Song 2</option>
+                                    <option value="url3">Song 3</option>
+                                    <option value="url4">Song 4</option>
+                                    <option value="url5">Song etc.</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="addToSongInput()">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <input id="font-color" name="font-color" type="hidden" value="">
+                <input id="letter-background" name="letter-background" type="hidden" value="">
+                <input id="song-name" name="song-name" type="hidden" value="">
             </div>
+
         </form>
         <div class="middle">
             <div id="buttons">
